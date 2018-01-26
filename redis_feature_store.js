@@ -25,7 +25,8 @@ function RedisFeatureStore(redis_opts, cache_ttl, prefix, logger) {
 
   // Allow driver programs to exit, even if the Redis
   // socket is active
-  client.unref();
+  // Comment this out for now, since it's causing problem with AWS Lambda
+  // client.unref();
 
   // A helper that performs a get with the redis client
   function do_get(key, cb) {
